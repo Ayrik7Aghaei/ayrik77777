@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>آیریک آقائی | برنامه‌نویس و طراح وب</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;800;900&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'BYekan';src:url('BYekan+.ttf') format('truetype');font-display:swap}
+:root{--bg:#0a0a0a;--card:rgba(20,20,20,.85);--bd:rgba(0,185,148,.28);--tx:#fff;--mu:#a3b3b0;--a:#00b994;--b:#3dffd6;--c:#008f74}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f2fbf9;--card:rgba(255,255,255,.85);--bd:rgba(0,185,148,.3);--tx:#0a1f1b;--mu:#4c6661}}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--tx);font-family:'BYekan',yekan,'Vazirmatn',Tahoma,sans-serif;overflow-x:hidden;line-height:1.9}
+.glow{position:fixed;width:420px;height:420px;border-radius:50%;background:radial-gradient(var(--a),transparent 65%);opacity:.25;pointer-events:none;transform:translate(-50%,-50%);z-index:0;transition:left .15s,top .15s}
+.blob{position:fixed;border-radius:50%;filter:blur(90px);opacity:.35;z-index:0;animation:fl 14s ease-in-out infinite alternate}
+.b1{width:420px;height:420px;background:var(--a);top:-120px;right:-100px}
+.b2{width:360px;height:360px;background:var(--c);bottom:-100px;left:-80px;animation-delay:-6s}
+@keyframes fl{to{transform:translate(60px,70px) scale(1.2)}}
+nav{position:fixed;top:12px;left:50%;transform:translateX(-50%);width:min(960px,94%);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px;border-radius:60px;background:var(--card);border:1px solid var(--bd);backdrop-filter:blur(18px)}
+.logo{font-weight:900;font-size:1.3rem;background:linear-gradient(90deg,var(--b),var(--a),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+nav ul{display:flex;gap:22px;list-style:none}
+nav a{color:var(--mu);text-decoration:none;font-weight:500;font-size:.95rem;transition:.3s}
+nav a:hover{color:var(--tx)}
+.btn{border:0;cursor:pointer;font:inherit;font-weight:800;color:#fff;padding:12px 28px;border-radius:50px;background:linear-gradient(120deg,var(--a),var(--c));box-shadow:0 8px 30px -8px var(--a);transition:.3s;text-decoration:none;display:inline-block}
+.btn:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 14px 40px -6px var(--b)}
+.btn.ghost{background:transparent;border:1px solid var(--bd);box-shadow:none;color:var(--tx)}
+nav .btn{padding:8px 20px;font-size:.9rem}
+section,header,footer{position:relative;z-index:1;width:min(1080px,92%);margin:auto}
+header{min-height:100vh;display:grid;grid-template-columns:1.2fr 1fr;align-items:center;gap:40px;padding-top:110px}
+.tag{display:inline-block;padding:6px 18px;border-radius:30px;background:var(--card);border:1px solid var(--bd);color:var(--b);font-size:.9rem;margin-bottom:14px}
+h1{font-size:clamp(2.6rem,7vw,5rem);font-weight:900;line-height:1.2;background:linear-gradient(90deg,var(--tx),var(--b),var(--a),var(--c),var(--tx));background-size:250%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 7s linear infinite}
+@keyframes sh{to{background-position:-250% 0}}
+h2{font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--b);font-weight:500;min-height:2.4em;margin:6px 0}
+h2::after{content:"|";animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.me p{color:var(--mu);max-width:520px;margin-bottom:26px}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.stats{display:flex;gap:26px;margin-top:34px}
+.stats b{display:block;font-size:2rem;font-weight:900}
+.stats span{color:var(--mu);font-size:.85rem}
+.avatar{position:relative;aspect-ratio:1;max-width:380px;width:100%;margin:auto}
+.avatar::before{content:"";position:absolute;inset:-6px;border-radius:50%;background:conic-gradient(var(--b),var(--a),var(--c),var(--b));animation:sp 6s linear infinite;filter:blur(2px)}
+@keyframes sp{to{transform:rotate(360deg)}}
+.avatar div{position:absolute;inset:6px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-size:6.5rem;font-weight:900;color:var(--a)}
+.chip{position:absolute;padding:8px 16px;border-radius:14px;background:var(--card);border:1px solid var(--bd);backdrop-filter:blur(12px);font-weight:800;font-size:.85rem;animation:up 4s ease-in-out infinite alternate}
+.chip:nth-of-type(1){top:6%;left:-4%}.chip:nth-of-type(2){bottom:12%;right:-6%;animation-delay:-2s}
+@keyframes up{to{transform:translateY(-14px)}}
+.sec{padding:90px 0}
+.sec h3.t{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;text-align:center;margin-bottom:8px}
+.sec .sub{text-align:center;color:var(--mu);margin-bottom:46px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.herfe{padding:32px 26px;border-radius:26px;background:var(--card);border:1px solid var(--bd);backdrop-filter:blur(14px);text-align:center;transition:.4s;position:relative;overflow:hidden}
+.herfe:hover{transform:translateY(-12px) rotate(-1deg);border-color:var(--a);box-shadow:0 24px 60px -20px var(--a)}
+.ico{width:78px;height:78px;margin:0 auto 14px;border-radius:22px;display:grid;place-items:center;font-size:1.6rem;font-weight:900;color:#fff;background:linear-gradient(135deg,var(--a),var(--b))}
+.herfe:nth-child(2) .ico{background:linear-gradient(135deg,var(--b),var(--a))}
+.herfe:nth-child(3) .ico{background:linear-gradient(135deg,var(--c),var(--a))}
+.bar{height:8px;border-radius:8px;background:var(--bd);margin:16px 0 20px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--b),var(--a));transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.show .bar i{width:var(--w)}
+.cta{padding:70px 30px;border-radius:36px;text-align:center;background:linear-gradient(135deg,rgba(0,185,148,.3),rgba(0,143,116,.15));border:1px solid var(--bd);backdrop-filter:blur(16px)}
+.cta h3{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900}
+.cta p{color:var(--mu);margin:8px 0 18px}
+.cta em{font-style:normal;font-weight:800;color:var(--b)}
+footer{text-align:center;padding:80px 0 50px}
+footer h1{font-size:clamp(1.8rem,5vw,3rem);animation-duration:9s}
+.tel{display:inline-block;margin:18px 0;font-size:1.6rem;font-weight:900;direction:ltr;color:var(--tx);text-decoration:none;padding:10px 30px;border-radius:50px;border:1px dashed var(--b);transition:.3s}
+.tel:hover{background:var(--b);color:#000}
+footer h3{color:var(--mu);font-weight:500}
+.rv{opacity:0;transform:translateY(40px);transition:1s cubic-bezier(.2,.8,.2,1)}
+.rv.show{opacity:1;transform:none}
+@media(max-width:780px){header{grid-template-columns:1fr;text-align:center;padding-top:120px}.me p{margin-inline:auto}.row,.stats{justify-content:center}nav ul{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="glow" id="glow"></div><div class="blob b1"></div><div class="blob b2"></div>
+
+<nav>
+  <span class="logo">Ayrik.dev</span>
+  <ul>
+    <li><a href="#services">خدمات</a></li>
+    <li><a href="#resume">رزومه</a></li>
+    <li><a href="#articles">مقالات</a></li>
+    <li><a href="#contact">تماس با ما</a></li>
+  </ul>
+  <a class="btn" href="#resume">دانلود رزومه</a>
+</nav>
+
+<header>
+  <div class="me rv">
+    <span class="tag">👋 سلام، من</span>
+    <h1>آیریک آقائی</h1>
+    <h2 id="type"></h2>
+    <p>با بیش از ۲ سال برنامه‌نویسی و کسب مقام سوم کشور در مسابقات کید کد، برای شما سایت شخصی و فروشگاهی حرفه‌ای، سریع و چشم‌نواز می‌سازم.</p>
+    <div class="row">
+      <a class="btn" href="#services">مشاهده‌ی پروژه‌ها</a>
+      <a class="btn ghost" href="#contact">با من تماس بگیر</a>
+    </div>
+    <div class="stats">
+      <div><b data-n="2">0</b><span>سال تجربه</span></div>
+      <div><b data-n="3">0</b><span>مقام کشوری</span></div>
+      <div><b data-n="100">0</b><span>درصد تعهد</span></div>
+    </div>
+  </div>
+  <div class="avatar rv">
+    <div>A</div>
+    <span class="chip">🏆 رتبه ۳ کشور</span>
+    <span class="chip">⚡ &lt;/code&gt;</span>
+  </div>
+</header>
+
+<section class="sec" id="services">
+  <h3 class="t">مهارت‌های من</h3>
+  <p class="sub">ابزارهایی که با آن‌ها ایده را به واقعیت تبدیل می‌کنم</p>
+  <div class="grid">
+    <div class="herfe rv"><div class="ico">5</div><h3>HTML5</h3><div class="bar"><i style="--w:90%"></i></div><a class="btn" href="#contact">Advance</a></div>
+    <div class="herfe rv"><div class="ico">3</div><h3>CSS3</h3><div class="bar"><i style="--w:85%"></i></div><a class="btn" href="#contact">Advance</a></div>
+    <div class="herfe rv"><div class="ico">Py</div><h3>Python</h3><div class="bar"><i style="--w:75%"></i></div><a class="btn" href="#contact">Advance</a></div>
+  </div>
+</section>
+
+<section class="sec" id="resume">
+  <div class="cta rv">
+    <h3>طراح سایت کافه راهرو ☕</h3>
+    <p>ارائه‌دهنده‌ی سایت شخصی و فروشگاهی</p>
+    <em>پرش به سوی آینده 🚀</em>
+  </div>
+</section>
+
+<footer id="contact">
+  <h1 class="rv">با ما کسب و کارت را بچرخون</h1>
+  <a class="tel rv" href="tel:09101197793">09101197793</a>
+  <h3 class="rv">با ما همراه باشید</h3>
+</footer>
+
+<script>
+var g=document.getElementById('glow');
+addEventListener('pointermove',function(e){g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
+
+var words=['مقام سوم کشور در مسابقات کید کد 🏆','طراح سایت شخصی و فروشگاهی','برنامه‌نویس HTML، CSS و Python'],
+    wi=0,ci=0,del=false,el=document.getElementById('type');
+function tick(){
+  var w=words[wi];el.textContent=w.slice(0,ci);
+  if(!del&&ci<w.length){ci++;setTimeout(tick,70)}
+  else if(!del){del=true;setTimeout(tick,1600)}
+  else if(ci>0){ci--;setTimeout(tick,30)}
+  else{del=false;wi=(wi+1)%words.length;setTimeout(tick,300)}
+}
+tick();
+
+function count(n){
+  var t=+n.dataset.n,i=0,s=setInterval(function(){i+=Math.ceil(t/40);if(i>=t){i=t;clearInterval(s)}n.textContent=i},35);
+}
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.classList.add('show');
+      e.target.querySelectorAll('[data-n]').forEach(count);
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.2});
+document.querySelectorAll('.rv').forEach(function(x,i){x.style.transitionDelay=(i%3)*.12+'s';io.observe(x)});
+</script>
+</body>
+</html>
